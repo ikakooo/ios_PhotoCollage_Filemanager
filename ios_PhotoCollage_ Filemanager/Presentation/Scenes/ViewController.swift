@@ -66,12 +66,6 @@ class ViewController: UIViewController , UINavigationControllerDelegate, UIImage
         newPhotoCollageStackView.addArrangedSubview(someImageView3)
         newPhotoCollageStackView.addArrangedSubview(someImageView4)
         newPhotoCollageStackView.addArrangedSubview(someImageView5)
-        //        newPhotoCollageStackView.insertArrangedSubview(someImageView, at: 0)
-        //        newPhotoCollageStackView.insertArrangedSubview(someImageView, at: 1)
-        //        newPhotoCollageStackView.insertArrangedSubview(someImageView, at: 2)
-        //        newPhotoCollageStackView.insertArrangedSubview(someImageView, at: 3)
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -100,7 +94,15 @@ class ViewController: UIViewController , UINavigationControllerDelegate, UIImage
             self.newPhotoCollageStackView.addArrangedSubview(self.newImageView(img: image))
            }
     }
-        }
+    @IBAction func onRotateClick(_ sender: Any) {
+        if newPhotoCollageStackView.axis == .horizontal {
+            newPhotoCollageStackView.axis = .vertical
+           } else {
+            newPhotoCollageStackView.axis = .horizontal
+           }
+        
+    }
+}
     
   
     

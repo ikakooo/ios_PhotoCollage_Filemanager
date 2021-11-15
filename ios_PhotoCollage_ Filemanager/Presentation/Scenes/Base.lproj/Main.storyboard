@@ -60,6 +60,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create New Photo Collage" id="wPB-On-Wha">
+                        <barButtonItem key="leftBarButtonItem" image="rotate.right" catalog="system" id="gwc-4s-DnS">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="onRotateClick:" destination="BYZ-38-t0r" id="4Bm-Ne-0Yc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="fS7-3o-Jbc">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
@@ -111,6 +117,7 @@
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="rotate.right" catalog="system" width="118" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
