@@ -7,8 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController , UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     @IBOutlet weak var newPhotoCollageStackView: UIStackView!
+    
+    var imagePicker = UIImagePickerController()
     
     
     let someImageView: UIImageView = {
@@ -55,6 +57,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        imagePicker.delegate = self
+        imagePicker.sourceType = .savedPhotosAlbum
+        imagePicker.allowsEditing = false
         
 //         newPhotoCollageStackView.addArrangedSubview(someImageView)
 //        newPhotoCollageStackView.addArrangedSubview(someImageView2)
@@ -79,20 +84,23 @@ class ViewController: UIViewController {
         
         guard let image = jsdfdh.makeSnapshot() else {return}
         
-        newPhotoCollageStackView.addArrangedSubview(newImageView(img: image))
+      //  newPhotoCollageStackView.addArrangedSubview(newImageView(img: image))
         
-      let sdfsfd =   saveImage(image: image)
-        // UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-//        if let data = image.pngData() {
-//                let filename = getDocumentsDirectory().appendingPathComponent("copy.png")
-//                try? data.write(to: filename)
-//            }
-        
+      let PhotoSaved =   saveImage(image: image)
+        print("Photo saved: \(PhotoSaved)")
     }
     
     @IBAction func onClearClick(_ sender: Any) {
         newPhotoCollageStackView.removeAllArrangedSubviews()
     }
+    @IBAction func onAddPhotoClick(_ sender: Any) {
+        
+        ImagePickerManager().pickImage(self){ image in
+               //here is the image
+            self.newPhotoCollageStackView.addArrangedSubview(self.newImageView(img: image))
+           }
+    }
+        }
     
   
     
@@ -122,5 +130,5 @@ class ViewController: UIViewController {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
-}
+
 

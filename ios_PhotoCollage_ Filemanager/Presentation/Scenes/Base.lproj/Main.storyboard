@@ -63,7 +63,7 @@
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="fS7-3o-Jbc">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <segue destination="KiQ-hH-Pk6" kind="show" id="Hhs-rN-Szr"/>
+                                <action selector="onAddPhotoClick:" destination="BYZ-38-t0r" id="1a5-xw-mMR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
